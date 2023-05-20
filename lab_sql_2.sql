@@ -48,6 +48,11 @@ where length > 180;
 -- 10. Get the name and email formatted. Example: Mary SMITH - mary.smith@sakilacustomer.org.
 select CONCAT(lower(first_name),'.',lower(last_name),'@sakilacustomer.org') from actor;
 
+select
+CONCAT(
+CONCAT(CONCAT(UCASE(LEFT(first_name, 1)), LCASE(SUBSTRING(first_name, 2))), ' ',last_name)
+,' - ',CONCAT(lower(first_name),'.',lower(last_name),'@sakilacustomer.org'))
+from actor;
 
 -- 11. What's the length of the longest film title? > 27
 select  MAX(LENGTH(title)) from film;
